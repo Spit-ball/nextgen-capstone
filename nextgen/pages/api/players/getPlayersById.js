@@ -2,7 +2,7 @@
 
 // be sure to make search query replace typical battletag # with a - in the URL or it will not work.
 
-export default async function handler(req, res) {
+export default async function getPlayersById(req, res) {
     const { playerId } = req.query; // extract playerId from URL query
 
     try {
