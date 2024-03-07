@@ -1,5 +1,7 @@
 // player comparisons route handler for retrieving an array of players to compare stats between. Still needs to be tested.
 
+// requires auth to be implemented before it can be tested.
+
 import connectDB from '../../../backend/config/db.js';
 
 export default async function handler(req, res) {
