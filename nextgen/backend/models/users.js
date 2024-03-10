@@ -1,7 +1,7 @@
-// user schema
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const UserSchema = new Schema({
     name: {
@@ -15,7 +15,9 @@ const UserSchema = new Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        minLength: 5,
+        maxLength: 20,
     },
     dateRegistered: {
         type: Date,
@@ -25,7 +27,22 @@ const UserSchema = new Schema({
         type: String,
         default: 'user',
         enum: ['user', 'admin', 'coach', 'player'] // accepts only these values for role -- default is user.
-    }
+    },
 });
 
-module.exports = mongoose.model('User', UserSchema);
+UserSchema.methods.checkPassword = async function (password) {
+    return await bcrypt.compare(password, this.password);
+}
+
+UserSchema.pre('save', async function (next) {
+    if (this.isNew || this.isModified('password')) {
+        this.password = await bcrypt.hash(this.password, 10);
+    }
+    next();
+}
+);
+
+const User = mongoose.models.User || mongoose.model('User', UserSchema); // had a "cannot overwrite model once compiled" error, so I added this line to fix it. this line checks if the model is already compiled, and if it is, it uses that model, otherwise it compiles a new model.
+
+
+export default User;

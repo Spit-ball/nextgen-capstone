@@ -27,6 +27,9 @@ const HeaderComponent = () => {
               Search
             </a>
           </li>
+          <li className="nav-item">
+            <button className="logout-button">Logout</button>
+          </li>
         </ul>
       </nav>
     </header>

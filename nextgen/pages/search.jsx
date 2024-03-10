@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import PlayerSummaryComponent from "../app/components/PlayerSummaryComponent";
 import PlayerStatSummaryComponent from "../app/components/PlayerStatSummaryComponent";
 import HeaderComponent from "../app/components/HeaderComponent";
 
 const Search = () => {
+  const router = useRouter(); // use this to reroute to login later
+
   const [searchQuery, setSearchQuery] = useState(""); // original search state
 
   const [allData, setAllData] = useState(null); // this is for ALL of the data I can get from the API...25000+ lines of data..., but the statSummary doesnt include the username or title, so I use this to get that info.
@@ -42,6 +45,7 @@ const Search = () => {
   return (
     <div>
       <HeaderComponent />
+      <h1>Search for a player</h1>
       <form onSubmit={handleSearch}>
         <input
           type="text"
