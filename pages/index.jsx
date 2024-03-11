@@ -2,7 +2,7 @@ import HeaderComponent from "../app/components/HeaderComponent";
 import { useContext } from "react";
 import { AuthContext } from "../app/contexts/AuthContext";
 
-const indexPage = () => {
+const IndexPage = () => {
   const { isLoggedIn, authUser } = useContext(AuthContext);
 
   console.log(authUser);
@@ -21,4 +21,4 @@ const indexPage = () => {
   );
 };
 
-export default indexPage;
+export default IndexPage;
