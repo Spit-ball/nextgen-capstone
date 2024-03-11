@@ -1,6 +1,6 @@
 import { useState, createContext, useContext } from 'react';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [authUser, setAuthUser] = useState(null);
@@ -21,19 +21,26 @@ export const AuthProvider = ({ children }) => {
             }
 
             const data = await response.json();
-            setAuthUser(data.username);
+            console.log('Login successful:', data)
+            setAuthUser(data.user.username); // had to change this from data.user to data.user.username
             setIsLoggedIn(true);
+            console.log('isLoggedIn after login:', isLoggedIn)
         } catch (error) {
             console.error('Login failed:', error);
         }
 
     }
 
+    const logout = () => {
+        setAuthUser(null);
+        setIsLoggedIn(false);
+    }
+
+
+
     return (
-        <AuthContext.Provider value={{ authUser, setAuthUser, isLoggedIn, setIsLoggedIn }}>
+        <AuthContext.Provider value={{ authUser, setAuthUser, isLoggedIn, setIsLoggedIn, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
 };
-
-export const useAuth = () => useContext(AuthContext);

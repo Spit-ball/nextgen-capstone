@@ -1,34 +1,22 @@
 import HeaderComponent from "../app/components/HeaderComponent";
-import { useAuth } from "../app/contexts/AuthContext";
+import { useContext } from "react";
+import { AuthContext } from "../app/contexts/AuthContext";
 
 const indexPage = () => {
-  const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
+  const { isLoggedIn, authUser } = useContext(AuthContext);
 
-  const login = (e) => {
-    e.preventDefault();
-    setIsLoggedIn(true);
-    setAuthUser({ name: "John Doe" });
-  };
-
-  const logout = (e) => {
-    e.preventDefault();
-    setIsLoggedIn(false);
-    setAuthUser(null);
-  };
+  console.log(authUser);
 
   return (
     <div>
       <HeaderComponent />
       <h1>Welcome to NextGen Stats</h1>
       <p>View stats of Overwatch 2 players</p>
-
       {isLoggedIn ? (
-        <button onClick={logout}>Logout</button>
+        <p>You are logged in as {authUser}</p>
       ) : (
-        <button onClick={login}>Login</button>
+        <p>You are not logged in</p>
       )}
-
-      {authUser && <p>Welcome, {authUser.name}</p>}
     </div>
   );
 };

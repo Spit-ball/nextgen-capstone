@@ -20,7 +20,7 @@ export default async function handler(req, res) {
                     return res.status(401).json({ message: "Your password is invalid" });
                 }
 
-                res.status(200).json({ message: "Login successful" });
+                res.status(200).json({ message: "Login successful", user });
             } catch (error) {
                 res.status(500).json({ message: "Internal server error" });
             }
