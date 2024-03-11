@@ -1,5 +1,5 @@
-// add Hero selection dropdown to limit stats put on page
-// add Role selection dropdown
+// TODO: add Hero selection dropdown to limit stats put on page
+// TODO: add Role selection dropdown
 
 import React from "react";
 
@@ -34,7 +34,9 @@ const PlayerStatSummaryComponent = ({ playerData }) => {
           <p>KDA: {stats.kda}</p>
         </div>
       ))}
+
       {/*mapping over specific heros and stats for each that are provided by OverFast*/}
+
       {Object.entries(heroes).map(([hero, stats]) => (
         <div key={hero}>
           <h2>{hero} stats</h2>{" "}

@@ -1,8 +1,5 @@
-// pages/api/userProfile/create.js
-
 import connectDB from '../../../backend/config/db.js'
 import User from '../../../backend/models/users.js';
-import { createUserProfileInDatabase } from '../../../backend/controllers/userController.js';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -23,12 +20,18 @@ export default async function handler(req, res) {
         if (existingUser) {
             return res.status(409).json({ error: "Username is already taken" });
         }
-        const newUserProfile = await createUserProfileInDatabase({ name, username, password });
 
-        const createdUser = await User.findById(newUserProfile._id);
+        // had to adjust the api to accept the new user data
 
-        // send the details of the newly created user profile as the API response for testing
-        res.status(201).json(createdUser);
+        const newUser = new User({
+            name,
+            username,
+            password
+        });
+
+        await newUser.save();
+
+        res.status(201).json({ message: "User profile created" });
 
     } catch (error) {
         console.error("Error creating user profile:", error);
