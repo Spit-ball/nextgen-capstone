@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import PlayerSummaryComponent from "../app/components/PlayerSummaryComponent";
 import PlayerStatSummaryComponent from "../app/components/PlayerStatSummaryComponent";
 import HeaderComponent from "../app/components/HeaderComponent";
 
@@ -15,6 +14,8 @@ const Search = () => {
 
   const [statSummary, setStatSummary] = useState(null); // this is for the summary of the data I can get from the API...much smaller than allData
 
+  const [consolidatedData, setConsolidatedData] = useState(null);
+
   const handleSearch = async (e) => {
     e.preventDefault();
     let battleTagAdjustment = searchQuery.replace(/#/g, "-"); // replace # with - for the URL
@@ -25,25 +26,15 @@ const Search = () => {
       );
 
       const allData = await allDataResponse.json();
-      setAllData(allData);
-    } catch (error) {
-      console.error(
-        "There was an error fetching all of the player data:",
-        error
-      );
-    }
-    try {
+
       const statSummaryResponse = await fetch(
         `/api/players/${battleTagAdjustment}/statSummary` // fetch the summary of the player data
       );
       const statSummary = await statSummaryResponse.json();
-      setStatSummary(statSummary);
+      setConsolidatedData({ ...allData, ...statSummary });
       setLoading(false);
     } catch (error) {
-      console.error(
-        "There was an error fetching the player data summary:",
-        error
-      );
+      console.error("There was an error fetching the player data:", error);
     }
   };
 
@@ -64,10 +55,9 @@ const Search = () => {
         </button>
         {loading && <p>Loading...</p>}
       </form>
-      {allData && statSummary && (
+      {consolidatedData && (
         <>
-          <PlayerSummaryComponent playerData={allData} />
-          <PlayerStatSummaryComponent playerData={statSummary} />
+          <PlayerStatSummaryComponent playerData={consolidatedData} />
         </>
       )}
     </div>
