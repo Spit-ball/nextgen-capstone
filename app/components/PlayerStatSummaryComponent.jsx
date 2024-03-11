@@ -1,9 +1,8 @@
-// TODO: add Hero selection dropdown to limit stats put on page
-// TODO: add Role selection dropdown
-
-import React from "react";
+import React, { useState } from "react";
 
 const PlayerStatSummaryComponent = ({ playerData }) => {
+  const [selectedHero, setSelectedHero] = useState("ana");
+
   if (
     !playerData ||
     !playerData.general ||
@@ -37,16 +36,23 @@ const PlayerStatSummaryComponent = ({ playerData }) => {
 
       {/*mapping over specific heros and stats for each that are provided by OverFast*/}
 
-      {Object.entries(heroes).map(([hero, stats]) => (
-        <div key={hero}>
-          <h2>{hero} stats</h2>{" "}
-          {/*capitalize first letter of hero name, if not already*/}
-          <p>Games won: {stats.games_won}</p>
-          <p>Games lost: {stats.games_lost}</p>
-          <p>Winrate: {stats.winrate}</p>
-          <p>KDA: {stats.kda}</p>
-        </div>
-      ))}
+      <select
+        id="champSelect"
+        onChange={() =>
+          setSelectedHero(document.getElementById("champSelect").value)
+        }
+      >
+        {Object.entries(heroes).map(([hero]) => (
+          <option value={hero}>{hero}</option>
+        ))}
+      </select>
+      <div>
+        {/*capitalize first letter of hero name, if not already*/}
+        <p>Games won: {heroes[selectedHero].games_won}</p>
+        <p>Games lost: {heroes[selectedHero].games_lost}</p>
+        <p>Winrate: {heroes[selectedHero].winrate}</p>
+        <p>KDA: {heroes[selectedHero].kda}</p>
+      </div>
     </div>
   );
 };

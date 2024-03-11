@@ -7,6 +7,8 @@ import HeaderComponent from "../app/components/HeaderComponent";
 const Search = () => {
   const router = useRouter(); // use this to reroute to login later
 
+  const [loading, setLoading] = useState(false); // set loading to true when fetching data
+
   const [searchQuery, setSearchQuery] = useState(""); // original search state
 
   const [allData, setAllData] = useState(null); // this is for ALL of the data I can get from the API...25000+ lines of data..., but the statSummary doesnt include the username or title, so I use this to get that info.
@@ -17,9 +19,11 @@ const Search = () => {
     e.preventDefault();
     let battleTagAdjustment = searchQuery.replace(/#/g, "-"); // replace # with - for the URL
     try {
+      setLoading(true);
       const allDataResponse = await fetch(
         `/api/players/${battleTagAdjustment}/allData` // fetch ALL of the player data
       );
+
       const allData = await allDataResponse.json();
       setAllData(allData);
     } catch (error) {
@@ -34,6 +38,7 @@ const Search = () => {
       );
       const statSummary = await statSummaryResponse.json();
       setStatSummary(statSummary);
+      setLoading(false);
     } catch (error) {
       console.error(
         "There was an error fetching the player data summary:",
@@ -48,15 +53,23 @@ const Search = () => {
       <h1>Search for a player</h1>
       <form onSubmit={handleSearch}>
         <input
+          disabled={loading}
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Enter Overwatch 2 Battletag"
         />
-        <button type="submit">Search</button>
+        <button type="submit" disabled={loading}>
+          Search
+        </button>
+        {loading && <p>Loading...</p>}
       </form>
-      {allData && <PlayerSummaryComponent playerData={allData} />}
-      {statSummary && <PlayerStatSummaryComponent playerData={statSummary} />}
+      {allData && statSummary && (
+        <>
+          <PlayerSummaryComponent playerData={allData} />
+          <PlayerStatSummaryComponent playerData={statSummary} />
+        </>
+      )}
     </div>
   );
 };
