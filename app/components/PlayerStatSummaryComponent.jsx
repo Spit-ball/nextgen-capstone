@@ -75,8 +75,10 @@ const PlayerStatSummaryComponent = ({ playerData }) => {
           setSelectedHero(document.getElementById("champSelect").value)
         }
       >
-        {Object.keys(heroes).map((hero) => (
-          <option value={hero}>{hero}</option>
+        {Object.keys(heroes).map((hero, index) => (
+          <option key={index} value={hero}>
+            {hero}
+          </option>
         ))}
       </select>
       <div>
