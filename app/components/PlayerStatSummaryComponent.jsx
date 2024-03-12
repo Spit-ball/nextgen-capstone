@@ -1,9 +1,9 @@
 // TODO: Add save button for stat card; saves to logged in users profile page via savedPlayers.js model
 
 import React, { useState } from "react";
-const [selectedHero, setSelectedHero] = useState(Object.keys(heroes)[0]); // set the default selected hero to the first hero in the list
 
 const PlayerStatSummaryComponent = ({ playerData }) => {
+  const [selectedHero, setSelectedHero] = useState(Object.keys(heroes)[0]); // set the default selected hero to the first hero in the list
   if (
     !playerData ||
     !playerData.general ||
