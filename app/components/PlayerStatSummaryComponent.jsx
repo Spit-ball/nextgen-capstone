@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 
-
 const PlayerStatSummaryComponent = ({ playerData }) => {
   const [selectedHero, setSelectedHero] = useState(Object.keys(heroes)[0]); // set the default selected hero to the first hero in the list
   if (
