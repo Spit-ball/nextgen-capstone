@@ -1,9 +1,16 @@
 // TODO: Add save button for stat card; saves to logged in users profile page via savedPlayers.js model
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const PlayerStatSummaryComponent = ({ playerData }) => {
-  const [selectedHero, setSelectedHero] = useState(Object.keys(heroes)[0]); // set the default selected hero to the first hero in the list
+  const [selectedHero, setSelectedHero] = useState(""); // set the default selected hero to the first hero in the list
+
+  useEffect(() => {
+    if (playerData && playerData.heroes) {
+      setSelectedHero(Object.keys(playerData.heroes)[0]); // set the selected hero to the first hero in the list
+    }
+  }, [playerData]);
+
   if (
     !playerData ||
     !playerData.general ||
@@ -77,17 +84,23 @@ const PlayerStatSummaryComponent = ({ playerData }) => {
       >
         {Object.keys(heroes).map((hero, index) => (
           <option key={index} value={hero}>
-            {hero}
+            {/* removes the - and capitalizes the first letter of each word in the hero name (for characters like Junker Queen, etc.) */}
+            {hero
+              .replace(/-/g, " ")
+              .split(" ")
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(" ")}
           </option>
         ))}
       </select>
-      <div>
-        {/*capitalize first letter of hero name, if not already*/}
-        <p>Games won: {heroes[selectedHero].games_won}</p>
-        <p>Games lost: {heroes[selectedHero].games_lost}</p>
-        <p>Winrate: {heroes[selectedHero].winrate}</p>
-        <p>KDA: {heroes[selectedHero].kda}</p>
-      </div>
+      {heroes[selectedHero] && (
+        <div>
+          <p>Games won: {heroes[selectedHero].games_won}</p>
+          <p>Games lost: {heroes[selectedHero].games_lost}</p>
+          <p>Winrate: {heroes[selectedHero].winrate}</p>
+          <p>KDA: {heroes[selectedHero].kda}</p>
+        </div>
+      )}
     </div>
   );
 };
