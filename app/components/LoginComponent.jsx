@@ -5,14 +5,18 @@ import "./componentStyles/LoginComponent.css";
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const { login } = useContext(AuthContext);
 
   const handleLogin = async (event) => {
     event.preventDefault();
+    setLoading(true);
     try {
       await login(username, password);
     } catch (error) {
       console.error("Login failed:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -21,6 +25,7 @@ const LoginComponent = () => {
       <h1 className="login-title">Login</h1>
       <form className="login-form" onSubmit={handleLogin}>
         <input
+          disabled={loading}
           type="text"
           placeholder="Username"
           className="login-input"
@@ -28,6 +33,7 @@ const LoginComponent = () => {
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
+          disabled={loading}
           type="password"
           placeholder="Password"
           className="login-input"
@@ -37,6 +43,7 @@ const LoginComponent = () => {
         <button className="login-button" type="submit">
           Login
         </button>
+        <p>{loading && "Loading..."}</p>
       </form>
     </div>
   );

@@ -7,10 +7,12 @@ import { useState } from "react";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     console.log("Username:", username);
     console.log("Password", password);
     console.log("Name", name);
@@ -38,18 +40,21 @@ const Register = () => {
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
         <input
+          disabled={loading}
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
         />
         <input
+          disabled={loading}
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
         />
         <input
+          disabled={loading}
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
