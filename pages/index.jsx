@@ -53,13 +53,15 @@ const IndexPage = () => {
   return (
     <div>
       <HeaderComponent />
-      <h1>Welcome to NextGen Stats</h1>
-      <p>View stats of Overwatch 2 players</p>
-      {isLoggedIn ? (
-        <p>You are logged in as {authUser}</p>
-      ) : (
-        <p>You are not logged in</p>
-      )}
+      <h1 className="index-title">Welcome to NextGen Stats</h1>
+      <p className="index-desc-txt">View stats of Overwatch 2 players</p>
+      <div className="loggedIn-text">
+        {isLoggedIn ? (
+          <p>You are logged in as {authUser}</p>
+        ) : (
+          <p>You are not logged in</p>
+        )}
+      </div>
       <HeroesComponent heroIds={heroIds} />
     </div>
   );

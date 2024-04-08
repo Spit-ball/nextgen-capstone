@@ -1,6 +1,7 @@
 import router from "next/router";
 import HeaderComponent from "../components/HeaderComponent";
 import { useState } from "react";
+import "./componentStyles/RegisterComponent.css";
 
 // export default const vs. export const
 
@@ -36,32 +37,38 @@ const Register = () => {
 
   return (
     <>
-      <HeaderComponent />
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          disabled={loading}
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
-        />
-        <input
-          disabled={loading}
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
-        />
-        <input
-          disabled={loading}
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button type="submit">Register</button>
-      </form>
+      <div className="register-container">
+        <h1 className="register-title">Register</h1>
+        <form className="register-form" onSubmit={handleSubmit}>
+          <input
+            disabled={loading}
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Name"
+            className="register-input"
+          />
+          <input
+            disabled={loading}
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
+            className="register-input"
+          />
+          <input
+            disabled={loading}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            className="register-input"
+          />
+          <button className="register-button" type="submit">
+            Register
+          </button>
+        </form>
+      </div>
     </>
   );
 };

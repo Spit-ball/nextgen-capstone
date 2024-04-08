@@ -1,7 +1,24 @@
 import React from "react";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../app/contexts/AuthContext";
 import RegisterComponent from "../app/components/RegisterComponent";
-function Register() {
-  return <RegisterComponent />;
-}
+import HeaderComponent from "../app/components/HeaderComponent";
+
+const Register = () => {
+  const { isLoggedIn } = useContext(AuthContext); // this needs to be on any page where I check to see if the user is logged in for certain content
+
+  useEffect(() => {
+    console.log("isLoggedIn in login:", isLoggedIn);
+  }, [isLoggedIn]);
+
+  return (
+    <div>
+      <HeaderComponent />
+      {isLoggedIn && <p>You are logged in</p>}
+      {!isLoggedIn && <p>You are not logged in</p>}
+      {!isLoggedIn && <RegisterComponent />}
+    </div>
+  );
+};
 
 export default Register;

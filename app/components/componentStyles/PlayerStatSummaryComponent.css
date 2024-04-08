@@ -1,0 +1,53 @@
+.player-stat-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-stat-summary .section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.player-stat-summary .section:last-child {
+  margin-bottom: 0;
+}
+
+.player-stat-summary .section h2 {
+  margin-bottom: 20px;
+}
+
+.player-stat-summary .section .stat-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.player-stat-summary .section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.player-stat-summary .section table th,
+.player-stat-summary .section table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.player-stat-summary .section table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.player-stat-summary .section table th {
+  background-color: #4caf50;
+  color: white;
+}
