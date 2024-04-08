@@ -1,0 +1,38 @@
+.heroes-title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.heroes-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 1em;
+  padding: 0 6em;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #007bff;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  box-sizing: border-box;
+}
+
+.hero-portrait {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.hero-name {
+  margin: 10px 0 0;
+  font-size: 1.3em;
+}
+
+.hero-role {
+  margin: 0;
+  text-transform: capitalize; /* This is new for me....wow, no JS required */
+}
