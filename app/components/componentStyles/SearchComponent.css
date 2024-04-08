@@ -1,18 +1,18 @@
-.login-container {
+.search-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 35vh;
+  min-height: 100vh;
 }
 
-.login-title {
+.search-title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.login-form {
+.search-form {
   width: 300px;
   padding: 20px;
   background-color: #002c55;
@@ -20,7 +20,7 @@
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
 }
 
-.login-input {
+.search-input {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -29,7 +29,7 @@
   box-sizing: border-box;
 }
 
-.login-button {
+.search-button {
   width: 100%;
   padding: 10px;
   background-color: #55a2e0;
@@ -40,6 +40,10 @@
   transition: background-color 0.3s ease;
 }
 
-.login-button:hover {
-  background-color: #555;
+.search-button:hover {
+  background-color: #002c55;
+}
+
+.data-container {
+  margin-top: 20px;
 }

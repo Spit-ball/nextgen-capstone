@@ -7,7 +7,7 @@ const HeaderComponent = () => {
   const { isLoggedIn, logout } = useContext(AuthContext);
   return (
     <header className="header">
-      <h1 className="header-title">Welcome to NextGen Stats</h1>
+      <h1 className="header-title">NextGen Stats</h1>
       <nav className="header-nav">
         <ul className="nav-list">
           <li className="nav-item">

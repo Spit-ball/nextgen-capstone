@@ -5,9 +5,9 @@
 
 .heroes-grid {
   display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  gap: 1em;
-  padding: 0 6em;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0.4em;
+  padding: 0 2em;
 }
 
 .hero {
@@ -34,5 +34,19 @@
 
 .hero-role {
   margin: 0;
-  text-transform: capitalize; /* This is new for me....wow, no JS required */
+  text-transform: capitalize;
+}
+
+/* Tablet styles */
+@media (max-width: 900px) {
+  .heroes-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+/* Phone styles */
+@media (max-width: 400px) {
+  .heroes-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }

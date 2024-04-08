@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #333;
+  background-color: #002c55;
   color: #fff;
 }
 
@@ -22,15 +22,26 @@
 }
 
 .nav-item {
-  margin-left: 20px;
+  margin-left: 40px;
 }
 
-.nav-link {
-  color: #fff;
+a {
+  color: #002c55;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #333;
+  border: 1px solid #fff;
+  display: inline-block;
 }
 
-.nav-link:hover {
+a:hover {
   color: #007bff;
+  background-color: #55a2e0;
+  transition: background-color 0.3s ease;
+}
+
+a:visited {
+  color: #ffffff;
 }
