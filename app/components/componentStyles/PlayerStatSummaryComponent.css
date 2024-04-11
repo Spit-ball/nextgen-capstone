@@ -17,7 +17,7 @@
 }
 
 .player-stat-summary .section:last-child {
-  margin-bottom: 0;
+  margin-bottom: 10%;
 }
 
 .player-stat-summary .section h2 {
@@ -50,4 +50,31 @@
 .player-stat-summary .section table th {
   background-color: #4caf50;
   color: white;
+}
+
+#champSelect {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.chosen-hero {
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.player-username {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.player-title {
+  font-size: 18px;
+  font-weight: bold;
 }

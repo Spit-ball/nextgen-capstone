@@ -47,7 +47,7 @@ const SearchComponent = () => {
         <button className="search-button" type="submit" disabled={loading}>
           Search
         </button>
-        {loading && <p>Loading...</p>}
+        {loading && <p className="loading-text">Loading...</p>}
       </form>
       <div className="data-container">
         {consolidatedData && (
