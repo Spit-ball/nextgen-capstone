@@ -13,7 +13,7 @@
 }
 
 .search-form {
-  width: 300px;
+  width: 45%;
   padding: 20px;
   background-color: #002c55;
   border-radius: 8px;
@@ -27,6 +27,11 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  text-align: center;
+}
+
+.search-input:disabled {
+  color: black;
 }
 
 .search-button {
@@ -41,9 +46,19 @@
 }
 
 .search-button:hover {
-  background-color: #002c55;
+  background-color: white;
+  color: black;
 }
 
 .data-container {
   margin-top: 20px;
+  width: 45%;
+}
+
+.loading-text {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
 }

@@ -26,7 +26,9 @@ const PlayerStatSummaryComponent = ({ playerData }) => {
 
   const renderStats = (title, stats) => (
     <div className="section">
-      <h2>{title.charAt(0).toUpperCase() + title.slice(1)}</h2>
+      <h2 className="chosen-hero">
+        {title.charAt(0).toUpperCase() + title.slice(1)}
+      </h2>
       <table>
         <tbody>
           <tr>
@@ -53,11 +55,11 @@ const PlayerStatSummaryComponent = ({ playerData }) => {
   return (
     <div className="player-stat-summary">
       <div className="section">
-        <p>Username: {summary.username}</p>
-        <p>Title: {summary.title}</p>
+        <p className="player-username">Username: {summary.username}</p>
+        <p className="player-title">Title: {summary.title}</p>
       </div>
       <div className="section">
-        <h2>My Hero</h2>
+        <h2>Select Your Hero</h2>
         <select
           id="champSelect"
           onChange={() =>
@@ -74,12 +76,10 @@ const PlayerStatSummaryComponent = ({ playerData }) => {
             </option>
           ))}
         </select>
-        {heroes[selectedHero] &&
-          renderStats(selectedHero, heroes[selectedHero])}
       </div>
+      {heroes[selectedHero] && renderStats(selectedHero, heroes[selectedHero])}
       <div className="section">
-        <h2>Season</h2>
-        <p>{`Season: ${summary.competitive.pc.season}`}</p>
+        <h2>Season {summary.competitive.pc.season}</h2>
       </div>
       {renderStats("General Stats", general)}
       {Object.entries(roles).map(([role, stats]) =>
