@@ -5,6 +5,7 @@ body {
   font-family: Arial, sans-serif;
   color: #333;
   background-color: #55a2e0;
+  width: 100%;
 }
 
 a {
@@ -44,4 +45,74 @@ input {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+}
+
+/* New Styles for my NextGen Stats Sections */
+
+.index-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.index-welcome-section {
+  text-align: center;
+}
+
+.index-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.index-main-section-1,
+.index-main-section-2 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  margin: 20px;
+  width: calc(50% - 20px);
+}
+
+.index-main-section-3 {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  margin: 10px 40px 10px 40px;
+}
+
+.section-heading {
+  text-align: center;
+}
+
+.site-desc {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.features-list,
+.functions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features-list li,
+.functions-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.features-list li:last-child,
+.functions-list li:last-child {
+  border-bottom: none;
 }
