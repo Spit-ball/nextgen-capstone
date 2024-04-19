@@ -91,7 +91,7 @@ const IndexPage = () => {
             <br />
             Ready to take your Overwatch 2 gameplay to the next level? Join the
             NextGen Stats community today and start tracking your stats like
-            never before. With our powerful tool, you'll be unstoppable on the
+            never before. With our powerful tool, you will be unstoppable on the
             battlefield.
             <br /> Sign up now and embark on your journey to gaming greatness
             with NextGen Stats.
