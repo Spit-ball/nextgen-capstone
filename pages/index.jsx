@@ -59,7 +59,7 @@ const IndexPage = () => {
           <p>View stats of Overwatch 2 players</p>
           <div className="loggedIn-text">
             {isLoggedIn ? (
-              <p>You are logged in as {authUser}</p>
+              <p>You are logged in as {authUser.username}</p>
             ) : (
               <p>You are not logged in</p>
             )}

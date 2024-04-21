@@ -2,13 +2,13 @@
   width: 80%;
   margin: 0 auto;
   padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 5px 22px rgba(0, 0, 0, 0.8);
   border-radius: 10px;
 }
 
 .user-profile-data-title {
   font-size: 2em;
-  color: #333;
+  color: black;
   margin-bottom: 20px;
 }
 
@@ -19,20 +19,27 @@
 
 .user-profile-data-item {
   font-size: 1.2em;
-  color: #666;
+  color: black;
   margin-bottom: 10px;
 }
 
-.edit-profile-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.role {
+  text-transform: capitalize;
 }
 
-.edit-profile-button:hover {
-  background-color: #0056b3;
+.user-profile-saved-battletags-title {
+  font-size: 1.5em;
+  color: black;
+  margin-bottom: 1.2em;
+}
+
+.user-profile-saved-battletags-item {
+  color: #002c55;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #55a2e0;
+  border: 1px solid #fff;
+  margin-right: 10px;
 }

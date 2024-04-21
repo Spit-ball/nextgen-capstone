@@ -1,4 +1,4 @@
-// saved player schema for storing players that have been saved by a user with a ref to the user and the player's statistics
+// saved player schema for storing players that have been saved by a user with a ref to the user and the player's statistics...this will be used for comparing players and tracking player progress over time after system is implemented
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
