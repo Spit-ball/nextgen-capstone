@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeaderComponent from "@/app/components/HeaderComponent";
 import SearchComponent from "../app/components/SearchComponent";
 

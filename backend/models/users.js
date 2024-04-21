@@ -17,7 +17,7 @@ const UserSchema = new Schema({
         type: String,
         required: true,
         minLength: 5,
-        maxLength: 20,
+        maxLength: 100, // increased from 20 to 100 to accomodate hashing algorithm
     },
     dateRegistered: {
         type: Date,
@@ -28,6 +28,10 @@ const UserSchema = new Schema({
         default: 'user',
         enum: ['user', 'admin', 'coach', 'player'] // accepts only these values for role -- default is user.
     },
+    savedBattleTags: {
+        type: [String],
+        default: []
+    }
 });
 
 UserSchema.methods.checkPassword = async function (password) {
