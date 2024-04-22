@@ -14,6 +14,7 @@ soon).
 ## Vercel Distribution
 
 An online version of the app is available at:
+<https://nextgen-capstone.vercel.app/>
 
 ## Using the app
 
