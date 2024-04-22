@@ -33,6 +33,7 @@
   right: 0;
   top: 0;
   position: relative;
+  flex-direction: column;
 }
 
 a {
@@ -102,16 +103,21 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30%;
+    margin-top: 20%;
     padding: 0 0.8em;
   }
 
   .nav-container {
     position: absolute;
     text-align: center;
+    margin-top: 5%;
   }
 
   .menu-toggle {
     z-index: 1;
+  }
+
+  .hidden {
+    display: none;
   }
 }

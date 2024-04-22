@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import "./componentStyles/HeaderComponent.css";
 import { AuthContext } from "../contexts/AuthContext";
 
@@ -13,9 +14,13 @@ const HeaderComponent = () => {
 
   return (
     <header className="header">
-      <Link className="home-logo" href="/">
-        <h1 className="header-title">NextGen Stats</h1>
-      </Link>
+      <Image
+        src="/assets/ng_logo.png"
+        className="header-title"
+        width={200}
+        height={100}
+        alt="NextGen Stats"
+      />
       <nav className={`header-nav ${isMenuOpen ? "open" : ""}`}>
         <ul className="nav-list">
           <div className="nav-container">
@@ -46,7 +51,10 @@ const HeaderComponent = () => {
           </div>
         </ul>
       </nav>
-      <div className="menu-toggle" onClick={toggleMenu}>
+      <div
+        className={`menu-toggle ${isMenuOpen ? "hidden" : ""}`}
+        onClick={toggleMenu}
+      >
         <span className="bar"></span>
         <span className="bar"></span>
         <span className="bar"></span>

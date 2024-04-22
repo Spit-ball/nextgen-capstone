@@ -5,8 +5,8 @@
 
 .heroes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.4em;
+  grid-template-columns: repeat(autofit, minmax(150px, 1fr));
+  gap: 0.8em;
   padding: 0 2em;
   margin: 0 auto;
 }
