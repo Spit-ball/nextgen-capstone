@@ -4,7 +4,7 @@
 
 export default async function getAllPlayerDataById(playerId) {
     try {
-        const apiUrl = `https://overfast-api.tekrop.fr/players/${playerId}`; // fetches ALL player Data
+        const apiUrl = `https://overfast-api.tekrop.fr/players/${playerId}?gamemode=quickplay`; // fetches ALL player Data
         const response = await fetch(apiUrl);
 
         if (!response.ok) {

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import Router from "next/router";
 import "./componentStyles/LoginComponent.css";
 
 const LoginComponent = () => {
@@ -16,6 +17,7 @@ const LoginComponent = () => {
     } catch (error) {
       console.error("Login failed:", error);
     } finally {
+      Router.push("/");
       setLoading(false);
     }
   };

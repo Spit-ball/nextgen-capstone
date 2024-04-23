@@ -34,6 +34,9 @@ export default async function handler(req, res) {
         res.status(201).json({ message: "User profile created" });
 
     } catch (error) {
+        if (error.name === "ValidationError") {
+            return res.status(400).json({ error: 'Your password is shorter than the minimum allowed length (5 characters). Please try again.' });
+        }
         console.error("Error creating user profile:", error);
         res.status(500).json({ error: "An error occurred while creating user profile" });
     }

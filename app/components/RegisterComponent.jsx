@@ -1,5 +1,4 @@
 import router from "next/router";
-import HeaderComponent from "../components/HeaderComponent";
 import { useState } from "react";
 import "./componentStyles/RegisterComponent.css";
 
@@ -14,9 +13,6 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    console.log("Username:", username);
-    console.log("Password", password);
-    console.log("Name", name);
 
     const response = await fetch("/api/userProfile/createUser", {
       method: "POST",
@@ -31,6 +27,9 @@ const Register = () => {
       // redirect to login page
       router.push("/login");
     } else {
+      const data = await response.json();
+      alert(data.error);
+      setLoading(false);
       console.error("Error creating user profile");
     }
   };

@@ -11,6 +11,12 @@ soon).
 - Save favorite battletags for easy access
 - View detailed player stats, including win rates!
 
+## Usage
+
+To use this app, visit the Vercel Distribution. Alternatively, you may clone the
+repository locally, open the folder with VSCode and run "npm run dev". Then,
+visit localhost:3000 on your computer to see a local instance of the app!
+
 ## Vercel Distribution
 
 An online version of the app is available at:

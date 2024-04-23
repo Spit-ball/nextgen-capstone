@@ -6,7 +6,7 @@
 
 export default async function getPlayerStatSummaryById(playerId) {
     try {
-        const apiUrl = `https://overfast-api.tekrop.fr/players/${playerId}/stats/summary`; // fetches just the player's stat summary
+        const apiUrl = `https://overfast-api.tekrop.fr/players/${playerId}/stats/summary?gamemode=quickplay`; // fetches just the player's stat summary
         const response = await fetch(apiUrl);
 
         if (!response.ok) {

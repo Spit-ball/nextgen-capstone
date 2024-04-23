@@ -39,7 +39,7 @@
 }
 
 .search-button {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   background-color: #55a2e0;
   color: #fff;
@@ -47,6 +47,7 @@
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
+  font-size: large;
 }
 
 .search-button:hover {
@@ -64,6 +65,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
   margin: 10px auto;
+  font-size: large;
+}
+
+.save-button:hover {
+  background-color: white;
+  color: black;
 }
 
 .data-container {
@@ -77,4 +84,32 @@
   margin-bottom: 20px;
   color: white;
   text-align: center;
+}
+
+.login-notif {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .search-form {
+    width: 80%;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+
+  .save-button {
+    width: 100%;
+  }
+
+  .data-container {
+    width: 80%;
+  }
 }
