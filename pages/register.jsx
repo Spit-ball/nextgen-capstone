@@ -14,8 +14,8 @@ const Register = () => {
   return (
     <div>
       <HeaderComponent />
-      {isLoggedIn && <p>You are logged in</p>}
-      {!isLoggedIn && <p>You are not logged in</p>}
+      {isLoggedIn && <p className="login-notif">You are logged in</p>}
+      {!isLoggedIn && <p className="login-notif">You are not logged in</p>}
       {!isLoggedIn && <RegisterComponent />}
     </div>
   );

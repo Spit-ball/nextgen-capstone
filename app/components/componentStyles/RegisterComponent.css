@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 35vh;
 }
 
 .register-title {
@@ -13,7 +12,7 @@
 }
 
 .register-form {
-  width: 300px;
+  width: 20%;
   padding: 20px;
   background-color: #002c55;
   border-radius: 8px;
@@ -42,4 +41,10 @@
 
 .register-button:hover {
   background-color: #555;
+}
+
+.login-notif {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
 }

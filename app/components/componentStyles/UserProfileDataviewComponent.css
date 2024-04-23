@@ -1,20 +1,25 @@
 .user-profile-data-container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  margin: 2em auto;
+  padding: 5px;
   box-shadow: 8px 5px 22px rgba(0, 0, 0, 0.8);
   border-radius: 10px;
+  background-color: #ffffff;
 }
 
 .user-profile-data-title {
   font-size: 2em;
   color: black;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .user-profile-data {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .user-profile-data-item {
@@ -27,19 +32,65 @@
   text-transform: capitalize;
 }
 
+.user-profile-saved-battletags-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+  margin: 20px 12em 2em 12em;
+  padding-bottom: 2em;
+  border-radius: 10px;
+}
+
 .user-profile-saved-battletags-title {
   font-size: 1.5em;
   color: black;
   margin-bottom: 1.2em;
 }
 
+.user-profile-saved-battletags-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2em;
+  width: 80%;
+  max-width: 1200px;
+}
+
 .user-profile-saved-battletags-item {
+  background: #55a2e0;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: large;
   color: #002c55;
   text-decoration: none;
   transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 10px 15px;
-  border-radius: 5px;
-  background-color: #55a2e0;
-  border: 1px solid #fff;
-  margin-right: 10px;
+  box-shadow: 3px 3px 10px #002c55, -3px -3px 10px #55a2e0;
+  transition: transform 0.8s ease;
+}
+
+.user-profile-saved-battletags-item:hover {
+  transform: scale(1.04);
+  color: #007bff;
+  background-color: #002c55;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .user-profile-data-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .user-profile-saved-battletags-container {
+    margin: 10px;
+  }
+
+  .user-profile-saved-battletags-list {
+    width: 60%;
+    margin: 0;
+  }
 }

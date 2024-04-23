@@ -20,6 +20,18 @@ const SearchComponent = ({ battleTag }) => {
 
   const handleSearch = async (e) => {
     if (e) e.preventDefault();
+    if (!searchQuery) {
+      alert("Please enter a BattleTag");
+      return;
+    }
+    if (searchQuery.includes(" ")) {
+      alert("BattleTag cannot contain spaces");
+      return;
+    }
+    if (!searchQuery.includes("#")) {
+      alert("Please enter a valid BattleTag including a # symbol");
+      return;
+    }
     let battleTagAdjustment = searchQuery.replace(/#/g, "-");
     try {
       setLoading(true);
@@ -41,6 +53,15 @@ const SearchComponent = ({ battleTag }) => {
   };
 
   const handleSaveBattleTag = async () => {
+    if (!searchQuery) return;
+    if (searchQuery.includes(" ")) {
+      alert("BattleTag cannot contain spaces");
+      return;
+    }
+    if (!searchQuery.includes("#")) {
+      alert("Please enter a valid BattleTag including a # symbol");
+      return;
+    }
     try {
       const response = await fetch("/api/saveBattleTag", {
         method: "POST",
@@ -70,7 +91,7 @@ const SearchComponent = ({ battleTag }) => {
     }
   }, [urlBattleTag]);
 
-  // auto search for the battleTag when the page loads with a battleTag in the URL from /profile
+  // auto search for the battleTag when the page loads with a battleTag in the URL
   useEffect(() => {
     if (searchQuery && autoSearch) {
       handleSearch();
