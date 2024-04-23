@@ -81,16 +81,21 @@
 @media (max-width: 768px) {
   .user-profile-data-container {
     width: 80%;
-    margin: 0 auto;
+    margin: 5em auto;
     padding: 10px;
   }
 
   .user-profile-saved-battletags-container {
-    margin: 10px;
+    margin: 4em;
   }
 
   .user-profile-saved-battletags-list {
     width: 60%;
-    margin: 0;
+    gap: 3em;
+    text-wrap: wrap;
+  }
+
+  .user-profile-saved-battletags-item {
+    font-size: 16px;
   }
 }

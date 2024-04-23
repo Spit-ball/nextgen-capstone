@@ -48,3 +48,9 @@
   font-weight: bold;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .login-form {
+    width: 50%;
+  }
+}

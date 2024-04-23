@@ -123,3 +123,24 @@ input {
 .functions-list li:last-child {
   border-bottom: none;
 }
+
+@media (max-width: 768px) {
+  .index-main {
+    flex-direction: column;
+  }
+
+  .index-main-section-1,
+  .index-main-section-2 {
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .index-main-section-3 {
+    width: 90%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
