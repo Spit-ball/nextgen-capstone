@@ -16,6 +16,8 @@ const LoginComponent = () => {
       await login(username, password);
       if (isLoggedIn) {
         Router.push("/");
+      } else {
+        throw new Error("Login failed:");
       }
     } catch (error) {
       alert("Login failed. Please try again.");
