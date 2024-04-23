@@ -7,29 +7,24 @@ export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const login = async (username, password) => {
-        try {
-            const response = await fetch('/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            });
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
 
-            if (!response.ok) {
-                throw new Error('Login failed');
-            }
-
-            const data = await response.json();
-            console.log('Login successful:', data)
-            setAuthUser(data.user);
-            setIsLoggedIn(true);
-            console.log('isLoggedIn after login:', isLoggedIn)
-        } catch (error) {
-            console.error('Login failed:', error);
+        if (!response.ok) {
+            throw new Error('Login failed');
         }
 
-    }
+        const data = await response.json();
+        console.log('Login successful:', data)
+        setAuthUser(data.user);
+        setIsLoggedIn(true);
+        console.log('isLoggedIn after login:', isLoggedIn)
+    };
 
     const logout = () => {
         setAuthUser(null);

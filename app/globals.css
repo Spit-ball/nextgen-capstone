@@ -73,7 +73,7 @@ input {
   border-radius: 10px;
   box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.8);
   padding: 20px;
-  margin: 20px;
+  margin: 2em 8em 2em 8em;
   width: calc(50% - 20px);
 }
 
@@ -83,7 +83,7 @@ input {
   box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.8);
   padding: 10px;
   margin: 10px 40px 10px 40px;
-  width: 60%;
+  width: 58%;
 }
 
 .section-heading {

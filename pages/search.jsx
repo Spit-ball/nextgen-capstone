@@ -8,7 +8,7 @@ const SearchPage = () => {
 
   return (
     <div>
-      <HeaderComponent />
+      <HeaderComponent showSearch={true} />
       {isLoggedIn && <p className="login-notif">You are logged in</p>}
       {!isLoggedIn && (
         <p className="login-notif">
