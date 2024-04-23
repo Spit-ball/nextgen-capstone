@@ -7,18 +7,21 @@ const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { login } = useContext(AuthContext);
+  const { login, isLoggedIn } = useContext(AuthContext);
 
   const handleLogin = async (event) => {
     event.preventDefault();
     setLoading(true);
     try {
       await login(username, password);
+      if (isLoggedIn) {
+        Router.push("/");
+      }
     } catch (error) {
       console.error("Login failed:", error);
     } finally {
-      Router.push("/");
       setLoading(false);
+      alert("Login failed. Please try again.");
     }
   };
 
