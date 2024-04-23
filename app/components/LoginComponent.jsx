@@ -18,10 +18,10 @@ const LoginComponent = () => {
         Router.push("/");
       }
     } catch (error) {
+      alert("Login failed. Please try again.");
       console.error("Login failed:", error);
     } finally {
       setLoading(false);
-      alert("Login failed. Please try again.");
     }
   };
 
