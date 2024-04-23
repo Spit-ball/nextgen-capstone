@@ -85,6 +85,10 @@
     padding: 10px;
   }
 
+  .user-profile-data-title {
+    font-size: 20px;
+  }
+
   .user-profile-saved-battletags-container {
     margin: 4em;
   }
