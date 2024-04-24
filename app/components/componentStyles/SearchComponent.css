@@ -32,6 +32,7 @@
   border-radius: 4px;
   box-sizing: border-box;
   text-align: center;
+  text-overflow: ellipsis;
 }
 
 .search-input:disabled {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import getAllHeroData from "../../pages/api/heroes/getAllHeroData";
 import "./componentStyles/HeroesComponent.css";
+import Image from "next/image";
 
 export default function HeroesComponent({ heroIds }) {
   const [heroesData, setHeroesData] = useState([]);
@@ -32,10 +33,12 @@ export default function HeroesComponent({ heroIds }) {
       <div className="heroes-grid">
         {heroesData.map((hero) => (
           <div key={hero.id} className="hero">
-            <img
+            <Image
               src={hero.portrait}
               alt={hero.name}
               className="hero-portrait"
+              width={80}
+              height={80}
             />
             <h2 className="hero-name">{hero.name}</h2>
             <p className="hero-role">{hero.role}</p>

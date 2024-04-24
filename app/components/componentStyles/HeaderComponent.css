@@ -82,6 +82,7 @@
   border-radius: 4px;
   box-sizing: border-box;
   text-align: center;
+  text-overflow: ellipsis;
 }
 
 .header-search-button {
@@ -90,7 +91,7 @@
   padding: 10px 10px 10px 10px;
   background-color: #55a2e0;
   color: #fff;
-  border: none;
+  border: 1px solid #fff;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: color 0.3s ease, background-color 0.3s ease, transform 0.8s ease;
