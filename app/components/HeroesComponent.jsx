@@ -31,8 +31,8 @@ export default function HeroesComponent({ heroIds }) {
     <div>
       <h2 className="heroes-title">Heroes</h2>
       <div className="heroes-grid">
-        {heroesData.map((hero) => (
-          <div key={hero.id} className="hero">
+        {heroesData.map((hero, index) => (
+          <div key={index} className="hero">
             <Image
               src={hero.portrait}
               alt={hero.name}

@@ -7,16 +7,16 @@
   display: grid;
   grid-template-columns: repeat(autofit, minmax(150px, 1fr));
   gap: 0.8em;
-  padding: 0 2em;
+  padding: 0 2rem;
   margin: 0 auto;
 }
 
 .hero {
   text-align: center;
   margin-bottom: 20px;
-  background-color: #007bff;
+  background-color: #004288;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   color: white;
   box-sizing: border-box;
 }
@@ -26,11 +26,12 @@
   height: 80px;
   object-fit: cover;
   border-radius: 50%;
+  border: 2px solid white;
 }
 
 .hero-name {
   margin: 10px 0 0;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   word-wrap: break-word;
 }
 
@@ -50,25 +51,14 @@
   }
   .hero-name {
     margin: 10px 0 0;
-    font-size: 0.7em;
+    font-size: 1.2rem;
     word-wrap: break-word;
   }
 
   .hero-role {
     margin: 0;
     text-transform: capitalize;
-    font-size: 0.6em;
-  }
-  .hero-name {
-    margin: 10px 0 0;
-    font-size: 0.7em;
-    word-wrap: break-word;
-  }
-
-  .hero-role {
-    margin: 0;
-    text-transform: capitalize;
-    font-size: 0.6em;
+    font-size: 1em;
   }
 }
 

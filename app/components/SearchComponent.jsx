@@ -20,18 +20,6 @@ const SearchComponent = ({ battleTag }) => {
 
   const handleSearch = async (e) => {
     if (e) e.preventDefault();
-    if (!searchQuery) {
-      alert("Please enter a BattleTag");
-      return;
-    }
-    if (searchQuery.includes(" ")) {
-      alert("BattleTag cannot contain spaces");
-      return;
-    }
-    if (!searchQuery.includes("#")) {
-      alert("Please enter a valid BattleTag including a # symbol");
-      return;
-    }
     let battleTagAdjustment = searchQuery.replace(/#/g, "-");
     try {
       setLoading(true);
@@ -53,15 +41,6 @@ const SearchComponent = ({ battleTag }) => {
   };
 
   const handleSaveBattleTag = async () => {
-    if (!searchQuery) return;
-    if (searchQuery.includes(" ")) {
-      alert("BattleTag cannot contain spaces");
-      return;
-    }
-    if (!searchQuery.includes("#")) {
-      alert("Please enter a valid BattleTag including a # symbol");
-      return;
-    }
     try {
       const response = await fetch("/api/saveBattleTag", {
         method: "POST",
@@ -104,6 +83,8 @@ const SearchComponent = ({ battleTag }) => {
       <h1 className="search-title">Search for a player</h1>
       <form className="search-form" onSubmit={handleSearch}>
         <input
+          required={searchQuery.length}
+          pattern="^\S*#\S*[0-9]+\S*$" // regex to ensure the battleTag has a # symbol, no spaces and at least one number
           disabled={loading}
           type="text"
           value={searchQuery}
@@ -111,14 +92,27 @@ const SearchComponent = ({ battleTag }) => {
           placeholder="Enter Overwatch 2 Battletag"
           className="search-input"
         />
-        <button className="search-button" type="submit" disabled={loading}>
+        <button
+          className="search-button"
+          type="submit"
+          disabled={
+            loading ||
+            !searchQuery ||
+            new RegExp("^S*#S*[0-9]+S*$").test(searchQuery) == true
+          }
+        >
           Search
         </button>
         {isLoggedIn && (
           <button
+            type="button" // ensures that the save button doesn't submit the form
             className="save-button"
             onClick={handleSaveBattleTag}
-            disabled={loading}
+            disabled={
+              loading ||
+              !searchQuery ||
+              new RegExp("^S*#S*[0-9]+S*$").test(searchQuery) == true
+            }
           >
             Save
           </button>

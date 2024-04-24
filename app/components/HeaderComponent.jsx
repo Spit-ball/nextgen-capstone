@@ -17,18 +17,6 @@ const HeaderComponent = ({ showSearch }) => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    if (!searchQuery) {
-      alert("Please enter a BattleTag");
-      return;
-    }
-    if (searchQuery.includes(" ")) {
-      alert("BattleTag cannot contain spaces");
-      return;
-    }
-    if (!searchQuery.includes("#")) {
-      alert("Please enter a valid BattleTag including a # symbol");
-      return;
-    }
     router.push(`/search?battleTag=${encodeURIComponent(searchQuery)}`); // encoding the URI component to handle special characters like the # symbol for battletags
   };
 
@@ -44,22 +32,34 @@ const HeaderComponent = ({ showSearch }) => {
         />
       </Link>
       {showSearch && (
-        <form className="header-search-form" onSubmit={handleSearch}>
+        <form
+          className="header-search-form"
+          onSubmit={() => searchQuery && handleSearch()} // only submit if there is a search query
+        >
           <input
+            required={searchQuery.length} // red border if no search query on focus
+            pattern="^\S*#\S*[0-9]+\S*$"
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search for a player by BattleTag"
             className="header-search-input"
           />
-          <button className="header-search-button" type="submit">
+          <button
+            className="header-search-button"
+            type="submit"
+            disabled={
+              !searchQuery ||
+              new RegExp("^S*#S*[0-9]+S*$").test(searchQuery) == true
+            }
+          >
             Search
           </button>
         </form>
       )}
       <nav className={`header-nav ${isMenuOpen ? "open" : ""}`}>
-        <ul className="nav-list">
-          <div className="nav-container">
+        <div className="nav-container">
+          <ul className="nav-list">
             <li className="nav-item">
               <Link className="nav-link" href="/">
                 Home
@@ -98,8 +98,8 @@ const HeaderComponent = ({ showSearch }) => {
                 </Link>
               </li>
             )}
-          </div>
-        </ul>
+          </ul>
+        </div>
       </nav>
       <div
         className={`menu-toggle ${isMenuOpen ? "hidden" : ""}`}

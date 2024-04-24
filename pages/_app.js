@@ -10,6 +10,8 @@ function MyApp({ Component, pageProps }) {
             <BattleTagProvider>
                 <Head>
                     <link rel="icon" href="/assets/ng_submark.png" />
+                    <title>NextGen Stats</title>
+                    <meta name="description" content="NextGen Stats for Overwatch" />
                 </Head>
                 <Component {...pageProps} />
             </BattleTagProvider>
