@@ -84,7 +84,7 @@ const SearchComponent = ({ battleTag }) => {
       <h1 className="search-title">Search for a player by BattleTag</h1>
       <div className="search-instructions">
         <p className="search-instructions-para">
-          Enter a BattleTag to search for a player's stats.
+          Enter a BattleTag to search for a players stats.
         </p>
         <p>
           Searches are case-sensitive and must include the # symbol and a
