@@ -14,12 +14,7 @@ export default async function getPlayerStatSummaryById(playerId) {
         }
 
         const data = await response.json();
-        console.log(data);
-
         return data;
-
-        // send the fetched data back as the API response
-        // res.status(200).json(data);
 
     } catch (error) {
         console.error("Error fetching OverFast data:", error);

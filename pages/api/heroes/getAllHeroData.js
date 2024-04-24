@@ -9,7 +9,6 @@ export default async function getAllHeroData(heroId) {
             throw new Error(`Response did not come back: ${response.status}`);
         }
         const data = await response.json();
-        console.log(data);
         return data;
 
     } catch (error) {

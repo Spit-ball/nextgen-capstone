@@ -3,14 +3,12 @@ import User from '../../backend/models/users'
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         const { userId, battleTag } = req.body;
-        console.log(userId)
 
         try {
             const user = await User.findById(userId);
             if (!user.savedBattleTags.includes(battleTag)) {
                 user.savedBattleTags.push(battleTag);
                 await user.save();
-                console.log(user);
                 res.status(200).json({ message: 'BattleTag saved successfully', user });
             }
         } catch (error) {

@@ -55,7 +55,6 @@ const SearchComponent = ({ battleTag }) => {
       }
 
       const data = await response.json();
-      console.log("BattleTag saved successfully:", data);
       setAuthUser(data.user);
     } catch (error) {
       console.error("There was an error saving the BattleTag:", error);

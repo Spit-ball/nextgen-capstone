@@ -49,8 +49,6 @@ const IndexPage = () => {
     "zenyatta",
   ];
 
-  console.log(authUser);
-
   return (
     <div>
       <HeaderComponent showSearch={true} />

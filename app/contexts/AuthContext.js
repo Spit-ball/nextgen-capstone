@@ -20,10 +20,8 @@ export const AuthProvider = ({ children }) => {
         }
 
         const data = await response.json();
-        console.log('Login successful:', data)
         setAuthUser(data.user);
         setIsLoggedIn(true);
-        console.log('isLoggedIn after login:', isLoggedIn)
     };
 
     const logout = () => {

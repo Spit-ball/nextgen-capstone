@@ -23,7 +23,6 @@ const Register = () => {
     });
 
     if (response.ok) {
-      console.log("User profile created successfully");
       // redirect to login page
       router.push("/login");
     } else {

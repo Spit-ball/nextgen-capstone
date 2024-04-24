@@ -12,7 +12,6 @@ export default async function getAllPlayerDataById(playerId) {
         }
 
         const data = await response.json();
-        console.log(data);
         const { username, stats } = data;
 
         return data;

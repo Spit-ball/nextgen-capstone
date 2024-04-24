@@ -6,10 +6,6 @@ import { AuthContext } from "../app/contexts/AuthContext";
 const Login = () => {
   const { isLoggedIn } = useContext(AuthContext); // this needs to be on any page where I check to see if the user is logged in for certain content
 
-  useEffect(() => {
-    console.log("isLoggedIn in login:", isLoggedIn);
-  }, [isLoggedIn]);
-
   return (
     <div>
       <HeaderComponent />
