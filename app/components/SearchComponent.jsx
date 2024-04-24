@@ -42,6 +42,7 @@ const SearchComponent = ({ battleTag }) => {
 
   const handleSaveBattleTag = async () => {
     try {
+      setLoading(true);
       const response = await fetch("/api/saveBattleTag", {
         method: "POST",
         headers: {
@@ -59,6 +60,7 @@ const SearchComponent = ({ battleTag }) => {
     } catch (error) {
       console.error("There was an error saving the BattleTag:", error);
     }
+    setLoading(false);
   };
 
   // decoding the encodedURI from /profile page to display the battleTag in the search bar and then search for it
@@ -100,7 +102,7 @@ const SearchComponent = ({ battleTag }) => {
             new RegExp("^S*#S*[0-9]+S*$").test(searchQuery) == true
           }
         >
-          Search
+          Search 🔍
         </button>
         {isLoggedIn && (
           <button
@@ -108,12 +110,15 @@ const SearchComponent = ({ battleTag }) => {
             className="save-button"
             onClick={handleSaveBattleTag}
             disabled={
-              loading ||
+              authUser.savedBattleTags.includes(searchQuery) ||
               !searchQuery ||
               new RegExp("^S*#S*[0-9]+S*$").test(searchQuery) == true
             }
           >
-            Save
+            {/* changes the button text to "Saved" if the battleTag is already saved */}
+            {authUser.savedBattleTags.includes(searchQuery)
+              ? "Saved ✅" // ✅ is a checkmark emoji <3
+              : "Save"}{" "}
           </button>
         )}
         {loading && <p className="loading-text">Loading...</p>}

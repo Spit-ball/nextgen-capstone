@@ -10,6 +10,8 @@ export default async function handler(req, res) {
                 user.savedBattleTags.push(battleTag);
                 await user.save();
                 res.status(200).json({ message: 'BattleTag saved successfully', user });
+            } else {
+                res.status(200).json({ message: 'BattleTag already saved', user });
             }
         } catch (error) {
             console.error('There was an error saving the BattleTag:', error);

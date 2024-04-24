@@ -53,7 +53,7 @@ const HeaderComponent = ({ showSearch }) => {
               new RegExp("^S*#S*[0-9]+S*$").test(searchQuery) == true
             }
           >
-            Search
+            Search 🔍
           </button>
         </form>
       )}
@@ -62,39 +62,39 @@ const HeaderComponent = ({ showSearch }) => {
           <ul className="nav-list">
             <li className="nav-item">
               <Link className="nav-link" href="/">
-                Home
+                Home 🏠
               </Link>
             </li>
             {!isLoggedIn && (
               <li className="nav-item">
                 <Link className="nav-link" href="/login">
-                  Login
+                  Login 🔐
                 </Link>
               </li>
             )}
             {!isLoggedIn && (
               <li className="nav-item">
                 <Link className="nav-link" href="/register">
-                  Register
+                  Register 📃
                 </Link>
               </li>
             )}
             <li className="nav-item">
               <Link href="/search" className="nav-link">
-                Search
+                Search 🔍
               </Link>
             </li>
             {isLoggedIn && (
               <li className="nav-item">
                 <Link className="nav-link" href="/profile">
-                  Profile
+                  Profile 🧑‍🦱
                 </Link>
               </li>
             )}
             {isLoggedIn && (
               <li className="nav-item">
                 <Link className="nav-link" href="/" onClick={logout}>
-                  Logout
+                  Logout 🚪
                 </Link>
               </li>
             )}
