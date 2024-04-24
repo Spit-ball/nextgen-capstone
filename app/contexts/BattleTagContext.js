@@ -6,7 +6,7 @@ export const BattleTagProvider = ({ children }) => {
     const [savedBattleTags, setSavedBattleTags] = useState([]);
 
     const saveBattleTag = (battleTag) => {
-        setSavedBattleTags((prevTags) => [...prevTags, battleTag]);
+        setSavedBattleTags((prevTags) => [...prevTags, battleTag]); // Adds the new battleTag to the savedBattleTags array
     };
 
     return (

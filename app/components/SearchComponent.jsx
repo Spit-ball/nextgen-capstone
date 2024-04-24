@@ -85,7 +85,7 @@ const SearchComponent = ({ battleTag }) => {
       <form className="search-form" onSubmit={handleSearch}>
         <input
           required={searchQuery.length}
-          pattern="^\S*#\S*[0-9]+\S*$" // regex to ensure the battleTag has a # symbol, no spaces and at least one number
+          pattern="^\S*#\S*[0-9]+\S*$" // regex to ensure the battleTag has a # symbol, no spaces and at least one number.
           disabled={loading}
           type="text"
           value={searchQuery}
@@ -98,8 +98,8 @@ const SearchComponent = ({ battleTag }) => {
           type="submit"
           disabled={
             loading ||
-            !searchQuery ||
-            new RegExp("^S*#S*[0-9]+S*$").test(searchQuery) == true
+            !searchQuery || // disables the search button if the searchQuery is empty
+            new RegExp("^S*#S*[0-9]+S*$").test(searchQuery) == true // tests the battleTag against the regex pattern to ensure it's valid before searching
           }
         >
           Search 🔍
@@ -111,8 +111,8 @@ const SearchComponent = ({ battleTag }) => {
             onClick={handleSaveBattleTag}
             disabled={
               authUser.savedBattleTags.includes(searchQuery) ||
-              !searchQuery ||
-              new RegExp("^S*#S*[0-9]+S*$").test(searchQuery) == true
+              !searchQuery || // disables the save button if the searchQuery is empty
+              new RegExp("^S*#S*[0-9]+S*$").test(searchQuery) == true // tests the battleTag against the regex pattern to ensure it's valid before saving
             }
           >
             {/* changes the button text to "Saved" if the battleTag is already saved */}

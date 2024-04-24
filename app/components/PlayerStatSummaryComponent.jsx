@@ -84,6 +84,7 @@ const PlayerStatSummaryComponent = ({ playerData }) => {
       </div>
       {heroes[selectedHero] && renderStats(selectedHero, heroes[selectedHero])}
       {renderStats("General Stats", general)}
+      {/* this ensures that the roles are always in the same order */}
       {["Tank", "Damage", "Support"].map((role) => {
         const stats = roles[role.toLowerCase()]; // this converts back to lowercase for the API call to get the stats because the object keys are all lowercase
         if (stats) {

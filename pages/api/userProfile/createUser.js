@@ -21,8 +21,6 @@ export default async function handler(req, res) {
             return res.status(409).json({ error: "Username is already taken" });
         }
 
-        // had to adjust the api to accept the new user data
-
         const newUser = new User({
             name,
             username,

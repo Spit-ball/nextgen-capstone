@@ -99,7 +99,8 @@ const IndexPage = () => {
             with NextGen Stats.
           </p>
         </div>
-        <HeroesComponent heroIds={heroIds} />
+        {/* pass the heroIds array to the HeroesComponent */}
+        <HeroesComponent heroIds={heroIds} />{" "}
       </div>
     </div>
   );

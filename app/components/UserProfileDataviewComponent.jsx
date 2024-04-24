@@ -46,7 +46,7 @@ const UserProfileDataComponent = () => {
                 <Link
                   className="user-profile-saved-battletags-item"
                   key={index}
-                  href={`/search?battleTag=${encodeURIComponent(battleTag)}`}
+                  href={`/search?battleTag=${encodeURIComponent(battleTag)}`} // encodes the battleTag to send it as a query parameter
                 >
                   {index > 0}
                   {battleTag}
