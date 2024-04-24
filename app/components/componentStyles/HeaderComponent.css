@@ -139,28 +139,28 @@
 
   .nav-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: #002c55;
     text-align: center;
     padding: 0;
   }
 
   .nav-item {
-    display: block;
+    flex: 1;
     width: 100%;
-    margin-top: 30%;
+    margin: 20px 10px 20px 10px;
     padding: 0 0.8em;
-    width: 20%;
   }
 
   .nav-container {
     position: absolute;
     text-align: center;
-    margin-top: 7%;
-    margin-right: 5%;
+    margin-top: 30%;
     flex-direction: column;
+    width: 100%;
+    background-color: #002c55;
   }
 
   .menu-toggle {
