@@ -2,7 +2,8 @@
 
 This project is a web application that I built with JavaScript, React, and
 Next.js that allows users to view player stats for Overwatch 2 (and more coming
-soon).
+soon). I created this web app as a capstone project for my Master's program in
+Mass Communication with a focus in Web Design.
 
 ## Features
 

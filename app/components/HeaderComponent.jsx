@@ -42,7 +42,7 @@ const HeaderComponent = ({ showSearch }) => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search for a player by BattleTag"
+            placeholder="Enter BattleTag: JohnDoe#1234"
             className="header-search-input"
           />
           <button

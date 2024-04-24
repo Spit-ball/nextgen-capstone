@@ -12,6 +12,7 @@ const LoginComponent = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
     setLoading(true);
+
     try {
       await login(username, password);
       Router.push("/");

@@ -7,12 +7,21 @@ import "./componentStyles/RegisterComponent.css";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
+    setErrorMessage("");
+
+    if (password !== confirmPassword) {
+      setErrorMessage("Passwords do not match");
+      setLoading(false);
+      return;
+    }
 
     const response = await fetch("/api/userProfile/createUser", {
       method: "POST",
@@ -38,6 +47,9 @@ const Register = () => {
       <div className="register-container">
         <h1 className="register-title">Register</h1>
         <form className="register-form" onSubmit={handleSubmit}>
+          {errorMessage && (
+            <p className="confirm-password-error-message">{errorMessage}</p>
+          )}
           <input
             disabled={loading}
             type="text"
@@ -61,6 +73,14 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             className="register-input"
+          />
+          <input
+            disabled={loading}
+            type="password"
+            placeholder="Confirm Password"
+            className="register-input"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <button className="register-button" type="submit">
             Register

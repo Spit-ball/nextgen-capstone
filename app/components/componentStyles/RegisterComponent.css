@@ -49,6 +49,12 @@
   text-align: center;
 }
 
+.confirm-password-error-message {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .register-form {
     width: 50%;

@@ -81,7 +81,7 @@ const SearchComponent = ({ battleTag }) => {
 
   return (
     <div className="search-container">
-      <h1 className="search-title">Search for a player</h1>
+      <h1 className="search-title">Search for a player by BattleTag</h1>
       <form className="search-form" onSubmit={handleSearch}>
         <input
           required={searchQuery.length}
@@ -90,7 +90,7 @@ const SearchComponent = ({ battleTag }) => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Enter Overwatch 2 Battletag"
+          placeholder="Enter BattleTag: JohnDoe#1234"
           className="search-input"
         />
         <button
