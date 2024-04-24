@@ -34,7 +34,7 @@ const HeaderComponent = ({ showSearch }) => {
       {showSearch && (
         <form
           className="header-search-form"
-          onSubmit={() => searchQuery && handleSearch()} // only submit if there is a search query
+          onSubmit={(e) => searchQuery && handleSearch(e)} // only submit if there is a search query
         >
           <input
             required={searchQuery.length} // red border if no search query on focus
