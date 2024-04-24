@@ -157,7 +157,7 @@
   .nav-container {
     position: absolute;
     text-align: center;
-    margin-top: 30%;
+    margin-top: 25%;
     flex-direction: column;
     width: 100%;
     background-color: #002c55;
@@ -166,10 +166,6 @@
   .menu-toggle {
     margin-right: 2em;
     z-index: 1;
-  }
-
-  .hidden {
-    display: none;
   }
 }
 

@@ -41,7 +41,7 @@ export default function HeroesComponent({ heroIds }) {
               height={80}
             />
             <h2 className="hero-name">{hero.name}</h2>
-            <p className="hero-role">{hero.role}</p>
+            <h2 className="hero-role">{hero.role}</h2>
           </div>
         ))}
       </div>

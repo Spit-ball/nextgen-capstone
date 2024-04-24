@@ -35,6 +35,10 @@ button:disabled {
   cursor: not-allowed;
 }
 
+p {
+  color: black;
+}
+
 /* Index Page Styles */
 
 .index-title {

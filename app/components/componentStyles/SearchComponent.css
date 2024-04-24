@@ -93,7 +93,29 @@
   font-weight: bold;
 }
 
+.search-instructions {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.search-instructions-para {
+  margin-bottom: 0;
+}
+
 @media (max-width: 768px) {
+  .search-instructions {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 2rem 0 2rem;
+  }
+
   .search-form {
     width: 80%;
   }

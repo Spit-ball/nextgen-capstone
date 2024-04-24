@@ -82,6 +82,15 @@ const SearchComponent = ({ battleTag }) => {
   return (
     <div className="search-container">
       <h1 className="search-title">Search for a player by BattleTag</h1>
+      <div className="search-instructions">
+        <p className="search-instructions-para">
+          Enter a BattleTag to search for a player's stats.
+        </p>
+        <p>
+          Searches are case-sensitive and must include the # symbol and a
+          number.
+        </p>
+      </div>
       <form className="search-form" onSubmit={handleSearch}>
         <input
           required={searchQuery.length}
